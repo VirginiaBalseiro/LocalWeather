@@ -6,24 +6,23 @@
     <link href="styles.css" rel="stylesheet">
   </head>
   <body>
-    <div class="wrapper">
-      <div class="container">
-        <div id="weather"><strong>Weather</strong></div>
-        <div><img src="" id="icon"></div>
-        <div id="description"><strong>Description</strong></div>
-        <div id="city"><strong>City</strong></div>
-        <div id="temp"><strong>The temperature is:</strong></div>
-        <div id="pressure"><strong>Pressure: </strong></div>
-        <div id="humidity"><strong>Humidity: </strong></div>
-        <div id="tempmin"><strong>Min temperature: </strong></div>
-        <div id="tempmax"><strong>Max temperature: </strong></div>
-        <p><strong>°C /°F</strong></p>
-        <label class="switch">
-          <input type="checkbox" id="toggle">
-          <span class="slider round"></span>
-        </label>
+     <div class="wrapper">
+    <div class="container">
+      <div class="weather-item"><span id="weather">Weather</span></div>
+   <div class="weather-item"><img src="" id="icon"></div>
+      <div class="weather-item"><span id="description">Description</span></div>
+      <div class="weather-item"><span id="city">City</span></div>
+      <div class="weather-item"><span>The temperature is </span><span id="temp"></span>
+        <div class="weather-item"><span>Pressure: </span><span id="pressure"></span></div>
+        <div class="weather-item"><span>Humidity: </span><span id="humidity"></span></div>
+        <div class="weather-item"><span>Min temperature: </span><span id="tempmin"></span></div>
+        <div class="weather-item"><span>Max temperature: </span><span id="tempmax"></span></div>
+      <p><strong>°C /°F</strong></p><label class="switch">
+  <input type="checkbox" id="toggle">
+  <span class="slider round"></span>
+  </label>
       </div>
-    </div>
+  </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
