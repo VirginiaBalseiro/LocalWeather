@@ -8,40 +8,43 @@ if (navigator.geolocation) {
  }
 
 function getWeather(lat, long){
-
+ 
   var url = "https://fcc-weather-api.glitch.me/api/current?lat="+ lat + "&lon=" + long;
    fetch (url)
     .then(function(response) {
      return response.json();
   })
     .then(function(data) {
+     var tempCelsius = data.main.temp + "°C";
+     var tempMaxCelsius = data.main.temp_min + "°C";
+     var tempMinCelsius = data.main.temp_max + "°C";
      var description = ("<h4>" + data.weather[0].description + "</h4>").toUpperCase();
       $("#weather").html("<h1>" + data.weather[0].main + "</h1>");
       $("#description").html(description);
       $("#icon").attr("src", data.weather[0].icon);
-      $("#city").html("<h2><strong>" + data.name + "</strong></h2>");
-      $("#temp").html("The temperature is " + "<strong>" + data.main.temp + "°C </strong>");
-      $("#tempmin").html("Min temperature: " + "<strong>" + data.main.temp_min + "°C </strong>");
-      $("#tempmax").html("Max temperature: " + "<strong>" + data.main.temp_max + "°C </strong>");
-      $("#pressure").html("Pressure: " + "<strong>" + data.main.pressure + "mb </strong>");
-      $("#humidity").html("Humidity: " + "<strong>" + data.main.humidity +"% </strong>");
+      $("#city").html("<h2>" + data.name + "</h2>");
+      $("#temp").html(tempCelsius);
+      $("#tempmin").html(tempMaxCelsius);
+      $("#tempmax").html(tempMinCelsius);
+      $("#pressure").html(data.main.pressure + "mb");
+      $("#humidity").html(data.main.humidity +"%");
       changeBg();
-
+    
    $("#toggle").on("change", function() {
   celsiusToFahrenheit();
 });
 function celsiusToFahrenheit (){
    if (document.getElementById("toggle").checked == true){
-       $("#temp").html("The temperature is " + "<strong>" + (data.main.temp*(9/5)+32).toFixed(1) + "°F </strong>");
-       $("#tempmin").html("Min temperature: " + "<strong>" + (data.main.temp_min*(9/5)+32).toFixed(1) + "°F </strong>");
-       $("#tempmax").html("Max temperature: " + "<strong>" + (data.main.temp_max*(9/5)+32).toFixed(1) + "°F </strong>");
+       $("#temp").html((data.main.temp*(9/5)+32).toFixed(1) + "°F");
+       $("#tempmin").html((data.main.temp_min*(9/5)+32).toFixed(1) + "°F");
+       $("#tempmax").html((data.main.temp_max*(9/5)+32).toFixed(1) + "°F");
   } else {
-       $("#temp").html("The temperature is " + "<strong>" + data.main.temp + "°C </strong>");
-       $("#tempmin").html("Min temperature: " + "<strong>" + data.main.temp_min + "°C </strong>");
-       $("#tempmax").html("Max temperature: " + "<strong>" + data.main.temp_max + "°C </strong>");
+       $("#temp").html(tempCelsius);
+       $("#tempmin").html(tempMinCelsius);
+       $("#tempmax").html(tempMaxCelsius);
   }
 }
-
+     
  function changeBg(){
    console.log(data.main.temp);
    if (data.main.temp <= 10){
@@ -53,7 +56,7 @@ function celsiusToFahrenheit (){
      $(".wrapper").css({"background": "linear-gradient(to bottom right, darkred, orange)", "background-repeat": "no-repeat", "background-size": "cover"});
     }
  }
-
+     
   });
 }
 })//end of document ready
