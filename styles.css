@@ -6,11 +6,21 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 .wrapper{
   background-color: #875F9A;
   height: 100vh;
+  bottom: 100px;
+  padding-bottom: 100px;
+}
+
+p {
+  margin-top: 5;
+  margin-bottom: 2px;
+  font-size: 20px;
+  padding: 0;
 }
 
 .container {
@@ -20,9 +30,14 @@ body {
   align-self: center;
   flex-direction: column;
   padding: 30px;
-  margin: 15px;
-  bottom: 30px;
+  height: auto;
   border-radius: 0.4em;
+  position: relative;
+  top: 50px;
+  bottom: 100px;
+}
+.weather-item{
+  padding: 5px;
 }
 
 #temp,
@@ -31,13 +46,14 @@ body {
 #humidity,
 #pressure {
 padding: 5px;
+font-weight: bold;
 }
 
 /* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 65px;
   height: 34px;
 }
 
