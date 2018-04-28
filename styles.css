@@ -20,8 +20,8 @@ body {
   align-self: center;
   flex-direction: column;
   padding: 30px;
-  margin: 50px;
-  bottom: 100px;
+  margin: 15px;
+  bottom: 30px;
   border-radius: 0.4em;
 }
 
