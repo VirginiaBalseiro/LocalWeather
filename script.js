@@ -59,4 +59,8 @@ function celsiusToFahrenheit (){
      
   });
 }
+     $("#social-button").on("click", function() { 
+    $("#social").toggle();
+    $("#ellipsis").toggle(); 
+ })
 })//end of document ready
